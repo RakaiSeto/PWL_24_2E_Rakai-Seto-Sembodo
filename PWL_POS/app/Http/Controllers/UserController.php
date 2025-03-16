@@ -22,15 +22,21 @@ class UserController extends Controller
             'title' => 'Daftar User'
         ];
 
+        $level = LevelModel::all();
+
         $activeMenu = 'user';
 
-        return view('user.index', compact('breadcrumb', 'page', 'activeMenu'));
+        return view('user.index', compact('breadcrumb', 'page', 'activeMenu', 'level'));
     }
 
-    public function list()
+    public function list(Request $request)
     {
         $users = UserModel::select('user_id', 'username', 'name', 'level_id')
             ->with('level');
+
+        if ($request->level_id) {
+            $users->where('level_id', $request->level_id);
+        }
 
         return DataTables::of($users)
             ->addIndexColumn()
