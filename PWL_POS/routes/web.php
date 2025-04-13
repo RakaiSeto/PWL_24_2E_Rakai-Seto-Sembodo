@@ -127,6 +127,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/', [BarangController::class, 'store']);         // menyimpan data barang baru
             Route::get('/create_ajax', [BarangController::class, 'create_ajax']); // menampilkan halaman form tambah barang ajax
             Route::post('/ajax', [BarangController::class, 'store_ajax']); // menyimpan data barang baru ajax
+            Route::get('/export_pdf', [BarangController::class, 'export_pdf']); // menampilkan halaman export barang
             Route::get('/{id}', [BarangController::class, 'show']);       // menampilkan detail barang
             Route::get('/{id}/edit', [BarangController::class, 'edit']);  // menampilkan halaman form edit barang
             Route::put('/{id}', [BarangController::class, 'update']);     // menyimpan perubahan data barang
