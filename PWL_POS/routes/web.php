@@ -118,6 +118,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/list', [BarangController::class, 'list']);      // menampilkan data barang dalam bentuk json untuk datatables
             Route::get('/import', [BarangController::class, 'import']); // menampilkan halaman import barang
             Route::post('/import_ajax', [BarangController::class, 'import_ajax']); // menyimpan data barang baru ajax
+            Route::get('/export_excel', [BarangController::class, 'export_excel']); // menampilkan halaman export barang
             Route::get('/create', [BarangController::class, 'create']);   // menampilkan halaman form tambah barang
             Route::post('/', [BarangController::class, 'store']);         // menyimpan data barang baru
             Route::get('/create_ajax', [BarangController::class, 'create_ajax']); // menampilkan halaman form tambah barang ajax
