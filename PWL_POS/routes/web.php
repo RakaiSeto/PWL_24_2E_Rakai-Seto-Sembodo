@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/', [UserController::class, 'store']);         // menyimpan data user baru
             Route::get('/create_ajax', [UserController::class, 'create_ajax']); // menampilkan halaman form tambah user ajax
             Route::post('/ajax', [UserController::class, 'store_ajax']); // menyimpan data user baru ajax
+            Route::get('/import', [UserController::class, 'import']); // menampilkan halaman import user
+            Route::post('/import_ajax', [UserController::class, 'import_ajax']); // menyimpan data user baru ajax
             Route::get('/{id}', [UserController::class, 'show']);       // menampilkan detail user
             Route::get('/{id}/edit', [UserController::class, 'edit']);  // menampilkan halaman form edit user
             Route::put('/{id}', [UserController::class, 'update']);     // menyimpan perubahan data user
@@ -60,6 +62,8 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/', [LevelController::class, 'store']);         // menyimpan data level baru
             Route::get('/create_ajax', [LevelController::class, 'create_ajax']); // menampilkan halaman form tambah level ajax
             Route::post('/ajax', [LevelController::class, 'store_ajax']); // menyimpan data level baru ajax
+            Route::get('/import', [LevelController::class, 'import']); // menampilkan halaman import level
+            Route::post('/import_ajax', [LevelController::class, 'import_ajax']); // menyimpan data level baru ajax
             Route::get('/{id}', [LevelController::class, 'show']);       // menampilkan detail level
             Route::get('/{id}/edit', [LevelController::class, 'edit']);  // menampilkan halaman form edit level
             Route::put('/{id}', [LevelController::class, 'update']);     // menyimpan perubahan data level
