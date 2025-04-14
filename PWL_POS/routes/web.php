@@ -9,6 +9,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\BarangController;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [WelcomeController::class, 'index']);
+    Route::get('/change-photo', [ProfileController::class, 'index']);
+    Route::post('/do-change-photo', [ProfileController::class, 'doChangePhoto']);
 
     Route::group(['prefix' => 'user'], function () {
         Route::middleware('authorize:ADM')->group(function () {
