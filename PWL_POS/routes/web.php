@@ -84,6 +84,8 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/', [KategoriController::class, 'store']);         // menyimpan data kategori baru
             Route::get('/create_ajax', [KategoriController::class, 'create_ajax']); // menampilkan halaman form tambah kategori ajax
             Route::post('/ajax', [KategoriController::class, 'store_ajax']); // menyimpan data kategori baru ajax
+            Route::get('/import', [KategoriController::class, 'import']); // menampilkan halaman import kategori
+            Route::post('/import_ajax', [KategoriController::class, 'import_ajax']); // menyimpan data kategori baru ajax
             Route::get('/{id}', [KategoriController::class, 'show']);       // menampilkan detail kategori
             Route::get('/{id}/edit', [KategoriController::class, 'edit']);  // menampilkan halaman form edit kategori
             Route::put('/{id}', [KategoriController::class, 'update']);     // menyimpan perubahan data kategori
@@ -104,6 +106,8 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/', [SupplierController::class, 'store']);         // menyimpan data supplier baru
             Route::get('/create_ajax', [SupplierController::class, 'create_ajax']); // menampilkan halaman form tambah supplier ajax
             Route::post('/ajax', [SupplierController::class, 'store_ajax']); // menyimpan data supplier baru ajax
+            Route::get('/import', [SupplierController::class, 'import']); // menampilkan halaman import supplier
+            Route::post('/import_ajax', [SupplierController::class, 'import_ajax']); // menyimpan data supplier baru ajax
             Route::get('/{id}', [SupplierController::class, 'show']);       // menampilkan detail supplier
             Route::get('/{id}/edit', [SupplierController::class, 'edit']);  // menampilkan halaman form edit supplier
             Route::put('/{id}', [SupplierController::class, 'update']);     // menyimpan perubahan data supplier
