@@ -3,46 +3,46 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\LevelModel;
+use App\Models\BarangModel;
 use Illuminate\Http\Request;
 
-class LevelController extends Controller
+class BarangController extends Controller
 {
     public function index()
     {
-        return LevelModel::all();
+        return BarangModel::all();
     }
 
     public function store(Request $request)
     {
-        $level = LevelModel::create($request->all());
-        return response()->json($level, 201);
+        $barang = BarangModel::create($request->all());
+        return response()->json($barang, 201);
     }
 
-    public function show(string $level)
+    public function show(string $barang)
     {
-        return LevelModel::find($level) ?? response()->json([
+        return BarangModel::find($barang) ?? response()->json([
             'success' => false,
             'message' => 'Data tidak ditemukan'
         ], 404);
     }
 
-    public function update(Request $request, LevelModel $level)
+    public function update(Request $request, string $barang)
     {
-        $level = LevelModel::find($request->level);
-        if (!$level) {
+        $barang = BarangModel::find($request->barang);
+        if (!$barang) {
             return response()->json([
                 'success' => false,
                 'message' => 'Data tidak ditemukan'
             ], 404);
         }
-        $level->update($request->all());
-        return LevelModel::find($level);
+        $barang->update($request->all());
+        return BarangModel::find($request->barang);
     }
 
-    public function destroy(LevelModel $level)
+    public function destroy(BarangModel $barang)
     {
-        $level->delete();
+        $barang->delete();
         return response()->json([
             'success' => true,
             'message' => 'Data terhapus'

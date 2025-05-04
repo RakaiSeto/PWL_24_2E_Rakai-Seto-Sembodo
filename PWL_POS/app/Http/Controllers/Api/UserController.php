@@ -3,46 +3,46 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\LevelModel;
+use App\Models\UserModel;
 use Illuminate\Http\Request;
 
-class LevelController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        return LevelModel::all();
+        return UserModel::all();
     }
 
     public function store(Request $request)
     {
-        $level = LevelModel::create($request->all());
-        return response()->json($level, 201);
+        $user = UserModel::create($request->all());
+        return response()->json($user, 201);
     }
-
-    public function show(string $level)
+    
+    public function show(string $user)
     {
-        return LevelModel::find($level) ?? response()->json([
+        return UserModel::find($user) ?? response()->json([
             'success' => false,
             'message' => 'Data tidak ditemukan'
         ], 404);
     }
 
-    public function update(Request $request, LevelModel $level)
+    public function update(Request $request, string $user)
     {
-        $level = LevelModel::find($request->level);
-        if (!$level) {
+        $user = UserModel::find($request->user);
+        if (!$user) {
             return response()->json([
                 'success' => false,
                 'message' => 'Data tidak ditemukan'
             ], 404);
         }
-        $level->update($request->all());
-        return LevelModel::find($level);
+        $user->update($request->all());
+        return UserModel::find($request->user);
     }
 
-    public function destroy(LevelModel $level)
+    public function destroy(UserModel $user)
     {
-        $level->delete();
+        $user->delete();
         return response()->json([
             'success' => true,
             'message' => 'Data terhapus'
